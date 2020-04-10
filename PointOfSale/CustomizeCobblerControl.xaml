@@ -6,7 +6,51 @@
              xmlns:local="clr-namespace:ExamTwoQuestions.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock>Customize Cobbler</TextBlock>
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="40px"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="SkyBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Cobbler" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <CheckBox Grid.Row="1" IsChecked="{Binding Path=WithIceCream}" Content="IceCream" HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Center"/>
+
+        <!--FRUITS-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="182*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Flavor" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold"/>
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Button x:Name="Peach" FontSize="20" Content="Peach" Margin="100,20,100,0" Click="ButtonClicked"/>
+                <Button x:Name="Cherry" FontSize="20" Content="Cherry" Click="ButtonClicked" Margin="100,20,100,0"/>
+                <Button x:Name="Blueberry" FontSize="20" Content="Blueberry" Click="ButtonClicked" Margin="100,20,100,0" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ListView ItemsSource="{Binding Path=Name}" HorizontalContentAlignment="Stretch"/>
+                <ListView Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}" HorizontalContentAlignment="Stretch"/>
+            </Grid>
+            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            </Grid>
+
     </Grid>
 </UserControl>

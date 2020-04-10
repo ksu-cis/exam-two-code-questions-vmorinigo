@@ -6,6 +6,8 @@ namespace ExamTwoCodeQuestions.Data
 {
     public interface IOrderItem
     {
+        List<string> Name { get; }
+
         /// <summary>
         /// Gets the price of the item
         /// </summary>
